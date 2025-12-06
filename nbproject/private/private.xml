@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/umustcoup/UMustCoup.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/umustcoup/Carta.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/umustcoup/Jugador.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/umustcoup/Accion.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/umustcoup/EstadoDelJuego.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/Servidor/ServidorMulti.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/Cliente/ClienteMulti.java</file>
-            <file>file:/C:/Users/expor/OneDrive/Documentos/NetBeansProjects/UMustCoup!/src/Servidor/UnCliente.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/Servidor/UnCliente.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/Servicio/Mensaje.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/Servidor/ServidorMulti.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/Dominio/Sala.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/Servicio/ServicioSala.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/umustcoup/Accion.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/umustcoup/Carta.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/umustcoup/EstadoDelJuego.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/umustcoup/Jugador.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/umustcoup/Rol.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/umustcoup/UMustCoup.java</file>
+            <file>file:/C:/Users/expor/UMustCoup!/src/Cliente/ParaRecibir.java</file>
         </group>
     </open-files>
 </project-private>

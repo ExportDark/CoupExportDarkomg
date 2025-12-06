@@ -36,19 +36,22 @@ public class UnCliente implements Runnable {
         return this.salida;
     }
 
-  @Override
+    @Override
     public void run() {
         try {
             this.salida.writeUTF("Conectado como: " + id);
             while (true) {
                 String mensajito = entrada.readUTF();
                 new Mensaje(this).procesarMensaje(mensajito);
-                }
+            }
 
         } catch (IOException ex) {
             System.out.println("Cliente " + id + " se desconectó.");
         } finally {
-            try { socket.close(); } catch (IOException ignored) {}
+            try {
+                socket.close();
+            } catch (IOException ignored) {
+            }
             ServidorMulti.eliminarIdCliente(id);
         }
     }
