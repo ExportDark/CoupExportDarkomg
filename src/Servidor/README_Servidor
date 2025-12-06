@@ -1,1 +1,2 @@
-Dentro de la carpeta servidor se encontrara la logica principal de como funciona el servidor, la forma en la que maneja los hilos y mensajes o acciones que quiera hacer el cliente
+Dentro de la carpeta servidor se encontrara la logica principal de como funciona el servidor,
+ la forma en la que maneja los hilos y mensajes o acciones que quiera hacer el cliente
