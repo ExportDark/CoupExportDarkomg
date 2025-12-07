@@ -1,7 +1,10 @@
 package Dominio;
+/**Dentro de esta clase se usaran para acceder a los datos de cada sesion, es un formato vacio que se necesita llenar para cada cliente
+ */
 public class Sesion {
 private String nombre;
 private String contra;
+
     public Sesion() {
     }
 

@@ -1,12 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Datos;
 
-/**
- *
- * @author expor
+/**Esta clase sera utilizada para guardar, obtener, modificar u eliminar datos estaticos guardados en la base de datos
  */
 public class SesionDAO {
     

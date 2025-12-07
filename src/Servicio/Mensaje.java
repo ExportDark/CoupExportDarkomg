@@ -2,7 +2,8 @@ package Servicio;
 
 import Servidor.UnCliente;
 import java.io.IOException;
-
+/**Esta clase se usara como servicio para los mensajes, dira que hacer en cada tipo de mensaje
+ */
 public class Mensaje {
     
     private UnCliente cliente;

@@ -5,7 +5,9 @@ import Servidor.UnCliente;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/*Esta clase servira como servicio de las salas, mediante el acceso de los atributos del objeto definira
+las acciones que se pueden ejecturar en cada sala
+*/
 public class ServicioSala {
     
     private List<Sala> salas = new ArrayList<>();

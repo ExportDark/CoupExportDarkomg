@@ -2,7 +2,8 @@ package Dominio;
 
 import Servidor.UnCliente;
 import java.util.List;
-
+/**Dentro de esta clase se usaran para acceder a los atributos que se necesitan para las salas, crearlas, cerrarlas, disolverlas, salir y entrar
+ */
 public class Sala {
 private String nombre;
 private List<UnCliente> miembros;
