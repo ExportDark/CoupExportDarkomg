@@ -17,55 +17,67 @@ public class UMustCoup {
         EstadoDelJuego juego = new EstadoDelJuego(listaJugadores);
 
         while (true) {
-            Jugador jugador = juego.obtenerJugadorActual();
-            System.out.println("Turno de " + jugador);
+            Jugador jugadorActual = juego.obtenerJugadorActual();
+            System.out.println("\n--------------------------------");
+            System.out.println("Turno de " + jugadorActual);
+
+            Jugador objetivo = null;
+            for(Jugador j : juego.obtenerJugadores()) {
+                if(!j.equals(jugadorActual) && j.estaVivo()) {
+                    objetivo = j;
+                    break;
+                }
+            }
+
+            System.out.println("Objetivo por defecto: " + (objetivo!=null ? objetivo.obtenerNombre() : "Nadie"));
 
             System.out.println("Acciones:");
-            System.out.println("1. Ingreso");
-            System.out.println("2. Ayuda Extrangera");
-            System.out.println("3. Golpe");
-            System.out.println("4. Impuestos");
-            System.out.println("5. Asesinato");
-            System.out.println("6. Extorsion");
-            System.out.println("7. Cambio");
+            System.out.println("1. Ingreso (1 moneda)");
+            System.out.println("2. Ayuda Extranjera (2 monedas)");
+            System.out.println("3. Golpe (7 monedas)");
+            System.out.println("4. Impuestos (3 monedas)");
+            System.out.println("5. Asesinato (3 monedas)");
+            System.out.println("6. Extorsion (Robar 2)");
+            System.out.println("7. Cambio (Cartas)");
+            System.out.print("Elige opcion: ");
+
             int opcion = sc.nextInt();
-            Accion accion = new Accion(jugador);
-            String objetivo = "tonto";
-                    int carta = 0; //0 o 1
+
+            Accion accion = new Accion(jugadorActual, objetivo, juego);
+
+            int cartaAfectada = 0;
+
             switch (opcion) {
-                
                 case 1:
-                    //no contraatacable
                     accion.ingreso();
                     break;
                 case 2:
-                    //contraatacable por duque
                     accion.ayudaExtrangera();
                     break;
                 case 3:
-                    //no contraatacable
-                    accion.golpe(new Jugador(objetivo),carta);
+                    if (objetivo != null) accion.golpe(cartaAfectada);
                     break;
                 case 4:
-                    //contraatacable
-                    //tiempo de espera a respuesta
                     accion.impuestos();
                     break;
                 case 5:
-                    //contraatacable
-                    accion.asesinato(new Jugador(objetivo),carta);
+                    if (objetivo != null) accion.asesinato(cartaAfectada);
                     break;
                 case 6:
-                    //contraatacable
-                    accion.extorision(new Jugador(objetivo));
+                    if (objetivo != null) accion.extorsion();
                     break;
                 case 7:
-                    //contraatacable
                     accion.cambio();
                     break;
                 default:
-                    //opcion no valida
+                    System.out.println("Opcion no valida");
+            }
 
+            int vivos = 0;
+            for(Jugador j : juego.obtenerJugadores()) if(j.estaVivo()) vivos++;
+            if(vivos <= 1) {
+                System.out.println("¡JUEGO TERMINADO!");
+                break;
             }
 
             juego.siguienteTurno();

@@ -11,6 +11,7 @@ public class EstadoDelJuego {
 
     public EstadoDelJuego(List<Jugador> jugadores) {
         this.jugadores = jugadores;
+        // Crear baraja
         for (Rol rol : Rol.values()) {
             baraja.add(new Carta(rol));
             baraja.add(new Carta(rol));
@@ -33,8 +34,24 @@ public class EstadoDelJuego {
     public void siguienteTurno() {
         do {
             jugadorActual = (jugadorActual + 1) % jugadores.size();
-        } while (!jugadores.get(jugadorActual).estaVivo());
+        } while (!jugadores.get(jugadorActual).estaVivo()); // Saltar jugadores muertos
     }
 
-    public List<Jugador> obtenerJugadores() { return jugadores; }
+    public List<Jugador> obtenerJugadores() {
+        return jugadores;
+    }
+
+    public Carta tomarCartaDelMazo() {
+        if (!baraja.isEmpty()) {
+            return baraja.remove(0);
+        }
+        return null;
+    }
+
+    public void devolverCartaAlMazo(Carta carta) {
+        if (carta != null) {
+            baraja.add(carta);
+            Collections.shuffle(baraja);
+        }
+    }
 }
