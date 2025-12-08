@@ -64,7 +64,7 @@ public class UMustCoup {
                     if (objetivo != null) accion.asesinato(cartaAfectada);
                     break;
                 case 6:
-                    if (objetivo != null) accion.extorsion();
+                    if (objetivo != null) accion.extorision();
                     break;
                 case 7:
                     accion.cambio();

@@ -40,6 +40,17 @@ public class UnCliente implements Runnable {
     public void run() {
         try {
             this.salida.writeUTF("Conectado como: " + id);
+
+            String menuLobby = "\n--- BIENVENIDO A UMUSTCOUP ---\n" +
+                    "Comandos disponibles:\n" +
+                    "/crear [nombre]   -> Crear una nueva sala\n" +
+                    "/unirse [nombre]  -> Unirse a una sala\n" +
+                    "/ver              -> Ver salas disponibles\n" +
+                    "/iniciar          -> Iniciar partida (si eres el 2do jugador)\n" +
+                    "/salir            -> Desconectar\n" +
+                    "------------------------------";
+            this.salida.writeUTF(menuLobby);
+
             while (true) {
                 String mensajito = entrada.readUTF();
                 new Mensaje(this).procesarMensaje(mensajito);

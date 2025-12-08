@@ -7,77 +7,67 @@ public class Accion {
     private Jugador jugadorObjetivo;
     private EstadoDelJuego estadoJuego;
 
-    // Constructor de acción
     public Accion(Jugador jugador, EstadoDelJuego estadoJuego) {
         this.jugador = jugador;
         this.estadoJuego = estadoJuego;
     }
 
-    // Constructor acción hacia otro jugador (para golpe, robo, asesinato)
     public Accion(Jugador jugador, Jugador jugadorObjetivo, EstadoDelJuego estadoJuego) {
         this.jugador = jugador;
         this.jugadorObjetivo = jugadorObjetivo;
         this.estadoJuego = estadoJuego;
     }
 
-    public void ingreso(){
-        System.out.println(jugador.obtenerNombre() + " toma ingreso.");
+    public String ingreso(){
         jugador.agregarMonedas(1);
+        return jugador.obtenerNombre() + " tomó Ingreso (+1 moneda).";
     }
 
-    public void ayudaExtrangera(){
-        System.out.println(jugador.obtenerNombre() + " intenta ayuda extranjera.");
+    public String ayudaExtrangera(){
         jugador.agregarMonedas(2);
+        return jugador.obtenerNombre() + " pidió Ayuda Extranjera (+2 monedas).";
     }
 
-    public void golpe(int cartaAEliminar){
+    public String golpe(int cartaAEliminar){
         if (jugador.obtenerMonedas() >= 7) {
-            System.out.println(jugador.obtenerNombre() + " da un golpe a " + jugadorObjetivo.obtenerNombre());
             jugador.quitarMonedas(7);
             jugadorObjetivo.perderCarta(cartaAEliminar);
+            return "¡GOLPE DE ESTADO! " + jugador.obtenerNombre() + " atacó a " + jugadorObjetivo.obtenerNombre();
         } else {
-            System.out.println("Error: No tienes 7 monedas.");
+            return "ERROR: No tienes 7 monedas para el Golpe.";
         }
     }
 
-    // --- Acciones de Personaje ---
-
-    // Duque
-    public void impuestos(){
-        System.out.println(jugador.obtenerNombre() + " cobra impuestos (Duque).");
+    public String impuestos(){
         jugador.agregarMonedas(3);
+        return jugador.obtenerNombre() + " cobró Impuestos como Duque (+3 monedas).";
     }
 
-    // Asesina
-    public void asesinato(int cartaAEliminar){
+    public String asesinato(int cartaAEliminar){
         if (jugador.obtenerMonedas() >= 3) {
-            System.out.println(jugador.obtenerNombre() + " intenta asesinar a " + jugadorObjetivo.obtenerNombre());
             jugador.quitarMonedas(3);
             jugadorObjetivo.perderCarta(cartaAEliminar);
+            return "¡ASESINATO! " + jugador.obtenerNombre() + " pagó para eliminar carta de " + jugadorObjetivo.obtenerNombre();
         } else {
-            System.out.println("Fallo: No tienes 3 monedas.");
+            return "ERROR: No tienes 3 monedas para Asesinato.";
         }
     }
 
-    // Capitán
-    public void extorsion(){
-        System.out.println(jugador.obtenerNombre() + " extorsiona a " + jugadorObjetivo.obtenerNombre());
+    public String extorision(){
         int monto = Math.min(2, jugadorObjetivo.obtenerMonedas());
         jugadorObjetivo.quitarMonedas(monto);
         jugador.agregarMonedas(monto);
+        return jugador.obtenerNombre() + " extorsionó (Capitán) a " + jugadorObjetivo.obtenerNombre() + " robando " + monto + " monedas.";
     }
 
-    // Embajador
-    public void cambio(){
-        System.out.println(jugador.obtenerNombre() + " realiza Cambio (Embajador).");
-        // Robar 2 cartas
+    public String cambio(){
         Carta c1 = estadoJuego.tomarCartaDelMazo();
         Carta c2 = estadoJuego.tomarCartaDelMazo();
-
         if(c1 != null) jugador.agregarCarta(c1);
         if(c2 != null) jugador.agregarCarta(c2);
 
         devolverCartasExceso();
+        return jugador.obtenerNombre() + " realizó Cambio de cartas (Embajador).";
     }
 
     private void devolverCartasExceso() {
@@ -86,16 +76,5 @@ public class Accion {
             Carta c = mano.remove(mano.size() - 1);
             estadoJuego.devolverCartaAlMazo(c);
         }
-        System.out.println("Cartas intercambiadas.");
-    }
-
-    public void bloquearAyudaExtranjera(){
-        System.out.println("Bloqueo de ayuda extranjera realizado.");
-    }
-    public void bloquearAsesinato(){
-        System.out.println("Bloqueo de asesinato realizado.");
-    }
-    public void bloquearExtorsion(){
-        System.out.println("Bloqueo de extorsión realizado.");
     }
 }
